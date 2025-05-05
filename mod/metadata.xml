@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-model href="https://wofsauge.github.io/isaac-xml-validator/xsd/metadata.xsd" ?>
+<metadata>
+  <name>Mo Curses</name>
+  <directory>mo-curses</directory>
+  <id>3402479582</id>
+  <description>
+    For now this mods add curse item with their graphics. I don't think the mod works with other mod so just in case deactivate the mod that add items.
+
+List Of Items :
+
+- Curse Of Death
+- Curse Of The Devil
+- Curse Of The Empress
+- Curse Of The Fool
+- Curse Of The Hanged Man
+- Curse Of The Magician
+- Curse Of The World
+
+We were two, my friend Louis who designed everything and myself Gaëtan I programmed all the lua.
+  </description>
+  <version>1.1.3</version>
+  <visibility>Public</visibility>
+  <tag id="Lua" />
+  <tag id="Items" />
+  <tag id="Graphics" />
+</metadata>
