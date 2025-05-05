@@ -1,0 +1,12 @@
+<ItemPools>
+  <Pool Name="curse">
+    <Item Name="Curse Of Death" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+    <Item Name="Curse Of The Devil" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+    <Item Name="Curse Of The Empress" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+    <Item Name="Curse Of The Fool" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+    <Item Name="Curse Of The Hanged Man" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+    <Item Name="Curse Of The Magician" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+    <Item Name="Curse Of The World" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+    <Item Name="Curse Of The Hierophant" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+  </Pool>
+</ItemPools>

@@ -1,0 +1,10 @@
+<items gfxroot="gfx/items/" version="1">
+    <passive cache="damage" name="Curse Of Death" gfx="Collectibles_CurseOfDeath.png" description="The smell of death from under the door" quality="3" />
+    <passive cache="damage" name="Curse Of The Devil" gfx="Collectibles_CurseOfTheDevil.png" description="Did you asked the route of hell" quality="3" />
+    <passive name="Curse Of The Empress" gfx="Collectibles_CurseOfTheEmpress.png" description="What life can cost you" quality="2" />
+    <passive name="Curse Of The Fool" gfx="Collectibles_CurseOfTheFool.png" description="You are afraid to lose something" quality="2" />
+    <passive name="Curse Of The Hanged Man" gfx="Collectibles_CurseOfTheHangedMan.png" description="Money is the sinews of war" quality="3" />
+    <passive name="Curse Of The Magician" gfx="Collectibles_CurseOfTheMagician.png" description="You attract me huh" quality="1" />
+    <passive name="Curse Of The World" gfx="Collectibles_CurseOfTheWorld.png" description="Did you lose your sight" quality="3" />
+    <passive name="Curse Of The Hierophant" gfx="Collectibles_CurseOfTheHierophant.png" description="Are you dead ?" quality="2" />
+</items>
