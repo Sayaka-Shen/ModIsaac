@@ -1,5 +1,5 @@
 <ItemPools>
-  <Pool Name="curse">
+  <Pool Name="curse/treasure">
     <Item Name="Curse Of Death" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
     <Item Name="Curse Of The Devil" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
     <Item Name="Curse Of The Empress" Weight="1" DecreaseBy="1" RemoveOn="0.1" />

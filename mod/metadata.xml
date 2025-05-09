@@ -3,7 +3,6 @@
 <metadata>
   <name>Mo Curses</name>
   <directory>mo-curses</directory>
-  <id>3402479582</id>
   <description>
     For now this mods add curse item with their graphics. I don't think the mod works with other mod so just in case deactivate the mod that add items.
 
@@ -19,9 +18,6 @@ List Of Items :
 
 We were two, my friend Louis who designed everything and myself Gaëtan I programmed all the lua.
   </description>
-  <version>1.1.3</version>
+  <version>1.0</version>
   <visibility>Public</visibility>
-  <tag id="Lua" />
-  <tag id="Items" />
-  <tag id="Graphics" />
 </metadata>
