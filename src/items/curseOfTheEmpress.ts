@@ -1,30 +1,35 @@
+/* eslint-disable complete/complete-sentences-line-comments */
+/* eslint-disable complete/format-jsdoc-comments */
 /* eslint-disable complete/prefer-plusplus */
-/* eslint-disable complete/format-line-comments */
 /* eslint-disable @typescript-eslint/switch-exhaustiveness-check */
 /* eslint-disable complete/newline-between-switch-case */
-/* eslint-disable complete/complete-sentences-line-comments */
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 
-import { CacheFlag, ModCallback } from "isaac-typescript-definitions";
-import { ModCallbackCustom  } from "isaacscript-common";
-import type { ModUpgraded } from "isaacscript-common";
+import { CacheFlag  } from "isaac-typescript-definitions";
+import type { CollectibleType } from "isaac-typescript-definitions";
 
-const CurseOfTheEmpressCollectible = Isaac.GetItemIdByName("Curse Of The Empress");
-const playerInstance = Isaac.GetPlayer();
+// Variable par défaut pour le script fonctionne
+const CurseOfTheEmpressCollectible: CollectibleType = Isaac.GetItemIdByName("Curse Of The Empress");
+const playerInstance: EntityPlayer = Isaac.GetPlayer();
 
-// Track the damage, firedelay and speed
+/**
+  * @param damageUp Variable pour ajouter des dégats.
+  * @param firedelayUp Variable pour ajouter des tears up.
+  * @param speedUp Variable pour ajouter de la vitesse au joueur.
+*/
 let damageUp = 0;
 let firedelayUp = 0;
 let speedUp = 0;
 
-export function CurseOfTheEmpress(mod: ModUpgraded): void
-{
-  mod.AddCallback(ModCallback.EVALUATE_CACHE, LinkStats);
-  mod.AddCallbackCustom(ModCallbackCustom.POST_NEW_LEVEL_REORDERED, StatsUpgrade);
-}
 
-// We update the stats when EvaluateCache is called to add them to the stats
-function LinkStats(player: EntityPlayer, cacheFlags: CacheFlag)
+/**
+  * Appartient à l'item Curse Of The Empress.
+  *
+  * S'exécute lors de l'évaluation du cache.
+  *
+  * Cette fonction sert à ajouter aux stats du joueur les bonus.
+*/
+export function LinkStats(player: EntityPlayer, cacheFlags: CacheFlag): void
 {
   if(playerInstance?.HasCollectible(CurseOfTheEmpressCollectible))
   {
@@ -49,9 +54,16 @@ function LinkStats(player: EntityPlayer, cacheFlags: CacheFlag)
   }
 }
 
-// Chaque level on enlève un coeur si il y en a plus que 1 et on ajoute les stats si c'est le cas
-// On les ajoute au cache flags comme dans le xml puis evaluate items trigger le EVALUATE_CACHE callback
-function StatsUpgrade()
+
+/**
+  * Appartient à l'item Curse Of The Empress.
+  *
+  * S'exécute lors de l'entrer dans un nouveau level.
+  *
+  * On enlève un coeur si Isaac en a plus que 1 et on ajoute les stats si c'est le cas.
+  * On les ajoute au cache flags comme dans le xml puis evaluate items trigger le EVALUATE_CACHE callback.
+*/
+export function StatsUpgrade(): void
 {
   if(playerInstance?.HasCollectible(CurseOfTheEmpressCollectible) && playerInstance?.GetMaxHearts() > 2)
   {

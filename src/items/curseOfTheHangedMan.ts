@@ -1,33 +1,39 @@
-/* eslint-disable complete/format-line-comments */
+/* eslint-disable complete/complete-sentences-jsdoc */
+/* eslint-disable complete/format-jsdoc-comments */
 /* eslint-disable complete/complete-sentences-line-comments */
 /* eslint-disable unicorn/no-lonely-if */
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 
-import { CoinSubType, ModCallback  } from "isaac-typescript-definitions";
-import type {CollectibleType} from "isaac-typescript-definitions";
-import { ModCallbackCustom, spawnCoin  } from "isaacscript-common";
-import type {ModUpgraded} from "isaacscript-common";
+import { CoinSubType } from "isaac-typescript-definitions";
+import type { CollectibleType } from "isaac-typescript-definitions";
+import { spawnCoin  } from "isaacscript-common";
 
+// Variable par défaut pour le script fonctionne
 const CurseOfTheHangedManCollectible: CollectibleType = Isaac.GetItemIdByName("Curse Of The Hanged Man");
 const playerInstance: EntityPlayer = Isaac.GetPlayer();
 
-// Array qui stocke les pièces spawn après la mort d'un ennemi, l'interface lie une entity à son timer
+/**
+  * @param CoinInterface = C'est une interface qui gère une entité et un timer (ça lie un timer à son entité)
+  * @param spawnedCoins = Un tableau de type CoinInterface donc un tableau avec deux valeurs dans chaque case (entité et timer)
+  * @param lastTimeLostCoin = On enregistre la dernière fois qu'un joueur a perdu un coin
+  * @param coinLossInterval = L'interval à laquelle on veut que le joueur perdre des pièces (genre toute les 1 minutes)
+  * @param spawnCoinLifeTime = Le temps de vie d'un coin spawn à la mort d'un ennemi (= 3 sec ici)
+**/
 interface CoinInterface { entity: Entity; timer: int; }
 const spawnedCoins: CoinInterface[] = [];
-
 let lastTimeLostCoin: int = 0;
-const coinLossInterval: int = 30 * 30; // 30 is 1 sec donc 30 sec
-
-// le temps que l'item spawn met à disparaitre
+const coinLossInterval: int = 30 * 30; // 30 = 1 sec / 30 * 30 = 900 frames donc 30 sec
 const spawnCoinLifetime: float = 90; // 3 sec = 90 frames / 1 sec = 30 frames
 
-export function CurseOfTheHangedMan(mod: ModUpgraded): void
-{
-  mod.AddCallbackCustom(ModCallbackCustom.POST_NPC_DEATH_FILTER, SpawnCoinOnNPCDeath);
-  mod.AddCallback(ModCallback.POST_UPDATE, LoseCoin);
-}
 
-function SpawnCoinOnNPCDeath(npcEntity: EntityNPC)
+/**
+  * Appartient à l'item Curse Of The Hanged Man.
+  *
+  * S'exécute à chaque fois qu'un ennemi meurt.
+  *
+  * Permet de faire spawn un coin à chaque fois qu'un ennemi meurt.
+*/
+export function SpawnCoinOnNPCDeath(npcEntity: EntityNPC): void
 {
   if(playerInstance?.HasCollectible(CurseOfTheHangedManCollectible))
   {
@@ -39,7 +45,16 @@ function SpawnCoinOnNPCDeath(npcEntity: EntityNPC)
   }
 }
 
-function LoseCoin()
+
+/**
+  * Appartient à l'item Curse Of The Hanged Man.
+  *
+  * S'éxécute à chaque Update.
+  *
+  * Elle gère le fait que les coins spawn après la mort d'ennemi despawn après 3 sec.
+  * Elle gère aussi le fait que toute les 30 sec le joueur perd un coin parmi tous ces coins.
+*/
+export function LoseCoin(): void
 {
   const frameCount = Isaac.GetFrameCount();
 
